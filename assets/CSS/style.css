@@ -1,19 +1,28 @@
 /**
- * Font
- *
- * @format
+ * Fonts
  */
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Quicksand:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@700&family=Open+Sans:wght@300;400;500;700&family=Quicksand:wght@400;700&display=swap');
 
+/**
+ * Global Styles
+ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+a,
+p {
+  color: #333;
+}
+
 a {
   text-decoration: none;
+}
+
+p {
+  font-size: 18px;
 }
 
 html {
@@ -21,32 +30,33 @@ html {
 }
 
 body {
+  background-color: #fff;
+  height: 500vh;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 200vh;
-  font-size: 18px;
-  width: 100%;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #fff;
 }
+
+/**
+ * Header Styles
+ */
 header {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0;left: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   padding: 20px 40px;
   backdrop-filter: blur(5px);
   z-index: 99;
 }
 
 header a.logo {
-  color: #333;
-  text-decoration: none;
   font-size: 1.2em;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -59,41 +69,45 @@ header nav.navigation {
   justify-content: center;
   gap: 30px;
 }
+
 .navigation a {
-  color: #333;
   font-weight: 500;
 }
+
 .navigation a:hover {
   color: #00daff;
 }
 
 header .fa {
-  /* transition: all 1s ease; */
   font-size: 1.6rem;
   display: none;
 }
+
+/**
+ * Dropdown Menu Styles
+ */
 .dropdown-menu {
   position: fixed;
   top: 80px;
+  background-color: rgba(0, 0, 0, .6);
   width: 80%;
-  height: 0px;
-  background-color: #00a8ff;
+  height: 0;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 5px;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, .6);
-  z-index: 99;
   overflow: hidden;
-  transition: height .5s ease ;
+  transition: height .5s ease;
+  z-index: 99;
 }
+
 .dropdown-menu.act-dropdown {
   height: 280px;
 }
+
 .dropdown-menu a {
-  color: #333;
   display: block;
   width: 80%;
   padding: 10px;
@@ -101,24 +115,37 @@ header .fa {
   border-radius: 99px;
   background-color: rgba(255, 255, 255, .9);
 }
+
 .dropdown-menu a.act {
   background-color: #00eaff;
 }
 
-.home-page {
+/**
+ * Home Page Styles
+ */
+section {
   width: 100%;
   height: 100vh;
+  padding: 0 40px;
+  background-color: #fff;
+  /* overflow: hidden; */
+}
+
+.inf {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: justify;
+  gap: 15px;
+  padding: 10px;
+}
+
+.home-page {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px;
   gap: 200px;
-  /* background-color: #333; */
-}
-.home-page .info-home {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
 }
 
 .info-home h1 {
@@ -127,9 +154,9 @@ header .fa {
   font-weight: 700;
 }
 
-.info-home h1 span {
+.info-home span {
   display: inline-block;
-  background: linear-gradient(45deg, #0d6efd, #00a8ff, #0047b3, #0d6efd, #00a8ff, #0047b3);
+  background:linear-gradient(45deg, #0d6efd, #00a8ff, #0047b3, #0d6efd, #00a8ff, #0047b3);
   -webkit-background-clip: text;
   background-size: 200% 200%;
   -webkit-text-fill-color: transparent;
@@ -137,72 +164,56 @@ header .fa {
 }
 
 @keyframes fade-up {
-  0% {
-    transform: translateY(5px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(5px);
-  }
+  0%,100% {transform: translateY(5px)}
+  50% {transform: translateY(-5px)}
 }
 
 @keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0%,100% {background-position: 0% 50%}
+  50% {background-position: 100% 50%}
 }
 
-.info-home p {
-  color: #333;
-  font-size: 18px;
-}
-
-.btn-getStarted{
+.btn {
   color: #333;
   border: 2px solid #00daff;
   border-radius: 20px;
   text-align: center;
-  width: 140px;
   font-size: 16px;
   font-weight: 700;
-  width: 150px;
+  width: 130px;
   padding: 8px 16px;
 }
-.btn-getStarted:hover {
-  background-color: #00daff;
-  box-shadow: 0 0 5px #00a8ff, 0 0 10px #00daff;
-}
-.home-page img {
-  width: 40%;
-  object-fit: cover;
+
+.btn:hover {
+  background-color: rgba(0, 217, 255, 0.583);
+  box-shadow: 0 0 5px #00daff, 0 0 10px #00daff;
 }
 
-/* About Page */
+.home-page img {
+  width: 40%;
+}
+
+/**
+ * About Page Styles
+ */
 .about-page {
-  width: 100%;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
   gap: 20px;
 }
+
 .about-page img {
   width: 300px;
 }
+
 .about-page .info-about {
   width: 500px;
 }
 
-
+/**
+ * Warning Styles
+ */
 #warning {
   position: absolute;
   top: 0;
@@ -210,50 +221,80 @@ header .fa {
   width: 100%;
   height: 3000px;
   display: none;
-  z-index: 99;
+  z-index: 100;
   animation: warning .5s linear infinite;
 }
+
 @keyframes warning {
-  from{background-color: blue;}
-  to{background-color: red;}
+  from {
+    background-color: #0000ff;
+  }
+  to {
+    background-color: #ff0000;
+  }
 }
 
+/**
+ * Media Queries
+ */
 @media only screen and (max-width: 620px) {
   header {
     width: 100%;
   }
+
   header nav.navigation {
     display: none;
   }
+
   header .fa {
     display: block;
   }
+
   .home-page {
-    /* background-color: #0047b3; */
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     padding-top: 80px;
     gap: 0;
   }
+
   .home-page img {
     width: 100%;
   }
-  .home-page h1{
-    font-size: 35px;
 
+  .home-page h1 {
+    font-size: 35px;
+    text-align: left;
   }
 
   .about-page {
     border-top: 1px solid rgba(128, 128, 128, 0.413);
-    padding-top: 80px;
+    padding-top: 8px;
     flex-direction: column-reverse;
   }
+
   .about-page img {
-    width: 100%;
+    width: 80%;
   }
+
   .about-page .info-about {
     width: 100%;
   }
-  
+}
+.tools-page,
+.skills-page,
+.profile-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(128, 128, 128, 0.413);
+}
+section > h3 {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  background:linear-gradient(45deg, #f5fd0d, #00ff2a, #b30f00, #f5fd0d, #00ff2a, #b30f00);
+  -webkit-background-clip: text;
+  background-size: 200% 200%;
+  -webkit-text-fill-color: transparent;
+  animation: fade-up 3s ease infinite, gradient 1.5s linear infinite;
 }
